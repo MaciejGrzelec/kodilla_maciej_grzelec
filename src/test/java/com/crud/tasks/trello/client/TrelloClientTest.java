@@ -73,6 +73,7 @@ public class TrelloClientTest {
                 "Test task",
                 "http://test.com"
         );
+
         when(restTemplate.postForObject(uri, null, CreatedTrelloCard.class)).thenReturn(createdTrelloCard);
         //When
         CreatedTrelloCard newCard = trelloClient.createNewCard(trelloCardDto);

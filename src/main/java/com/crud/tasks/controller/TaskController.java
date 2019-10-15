@@ -30,8 +30,8 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
-    public void deleteTask(@RequestParam Long TaskId) throws TaskNotFoundException {
-        Task task = service.getTask(TaskId).orElseThrow(TaskNotFoundException::new);
+    public void deleteTask(@RequestParam Long tgit paskId) throws TaskNotFoundException {
+        Task task = service.getTask(taskId).orElseThrow(TaskNotFoundException::new);
         service.deleteTask(task);
     }
 

@@ -1,4 +1,4 @@
-package com.crud.scheduler;
+package com.crud.tasks.scheduler;
 
 import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
@@ -23,11 +23,17 @@ public class EmailScheduler {
     //@Scheduled(fixedDelay = 10000)
     @Scheduled(cron = "*/10 * * * * *")
     public void sentInformationEmail(){
+        String task;
         long size = taskRepository.count();
+        if (size == 1L) {
+            task = " task";
+        } else { task = " tasks";}
+
         simpleMailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + size + " tasks"
+                "Currently in database you got: " + size + task
         ));
     }
 }
+

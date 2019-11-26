@@ -3,8 +3,7 @@ package com.crud.tasks.facade;
 import com.crud.tasks.domain.*;
 import com.crud.tasks.mapper.TrelloMapper;
 import com.crud.tasks.service.TrelloService;
-import com.crud.tasks.trello.TrelloValidator.TrelloValidator;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.crud.tasks.trello.trelloValidator.TrelloValidator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -99,14 +98,14 @@ public class TrelloFacadeTest {
         });
     }
 
-    @Test
+    /*@Test
     public void shouldCreateCard() {
         //Given
-        CreatedTrelloCardDto trelloCardDto = new CreatedTrelloCardDto("1", "test1", "www.aaa.com");
+        CreatedTrelloCardDto trelloCardDto = new CreatedTrelloCardDto("1", "test1", "www.1.com");
 
         //When
 
         //Then
 
-    }
+    }*/
 }

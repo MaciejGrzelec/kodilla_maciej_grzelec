@@ -1,4 +1,4 @@
-package com.crud.tasks.trello.TrelloValidator;
+package com.crud.tasks.trello.trelloValidator;
 
 import com.crud.tasks.domain.TrelloBoard;
 import com.crud.tasks.domain.TrelloCard;
@@ -30,6 +30,4 @@ public class TrelloValidator {
         LOGGER.info("Boards have been filtered. Curent list size: " + filteredBoards.size());
         return filteredBoards;
     }
-
-
 }

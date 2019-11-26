@@ -3,7 +3,7 @@ package com.crud.tasks.facade;
 import com.crud.tasks.domain.*;
 import com.crud.tasks.mapper.TrelloMapper;
 import com.crud.tasks.service.TrelloService;
-import com.crud.tasks.trello.TrelloValidator.TrelloValidator;
+import com.crud.tasks.trello.trelloValidator.TrelloValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;

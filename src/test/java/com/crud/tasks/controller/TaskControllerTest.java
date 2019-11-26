@@ -84,6 +84,7 @@ public class TaskControllerTest {
         when(service.saveTask(any())).thenReturn(null);
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
+
         //When & Then
         mockMvc.perform(post("/v1/task/createTask")
                 .contentType(MediaType.APPLICATION_JSON)

@@ -65,5 +65,6 @@ public class SimpleEmailService {
         mailMessage.setText(mail.getMessage());
         if (mail.getToCc() != null) {mailMessage.setCc(mail.getToCc());}
         return mailMessage;
+
     }
 }

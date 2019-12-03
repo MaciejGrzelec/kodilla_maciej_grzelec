@@ -41,7 +41,7 @@ public class TaskControllerTest {
     @MockBean
     private DbService service;
 
-    /*@Test
+    @Test
     public void fetchTask() throws Exception {
         //Given
         TaskDto taskDto = new TaskDto(1L, "title1", "content1");
@@ -51,14 +51,14 @@ public class TaskControllerTest {
         when(service.getTask(any())).thenReturn(task1);
 
         //When & Then
-        mockMvc.perform(get("/v1/tasks{taskId}")
+        mockMvc.perform(get("/v1/tasks/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("taskId", "1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.title", is("title1")))
                 .andExpect(jsonPath("$.content", is("content1")));
-    }*/
+    }
 
     @Test
     public void fetchTasks() throws Exception {
@@ -93,18 +93,18 @@ public class TaskControllerTest {
         verify(service, times(1)).saveTask(any());
     }
 
-    /*@Test
+    @Test
     public void deleteTask() throws Exception {
         //Given
         doNothing().when(service).deleteTask(any());
 
         //When & Then
-        mockMvc.perform(delete("/v1/tasks/{taskId}")
+        mockMvc.perform(delete("/v1/tasks/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("taskId", "1"))
                 .andExpect(status().isOk());
         verify(service, times(1)).deleteTask(any());
-    }*/
+    }
 
     @Test
     public void updateTask() throws Exception {

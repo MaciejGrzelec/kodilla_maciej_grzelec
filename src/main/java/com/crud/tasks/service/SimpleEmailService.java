@@ -24,7 +24,7 @@ public class SimpleEmailService {
     public void send(final Mail mail) {
         LOGGER.info("Starting email preparation...");
         try {
-            javaMailSender.send(createExerciseMimeMessage(mail));
+            javaMailSender.send(createMimeMessage(mail));
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
             LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
@@ -32,12 +32,12 @@ public class SimpleEmailService {
     }
 
     public void sendExerciseMail(final Mail mail) {
-        LOGGER.info("Starting email preparation...");
+        LOGGER.info("Starting exercise email preparation...");
         try {
-            javaMailSender.send(createMimeMessage(mail));
-            LOGGER.info("Email has been sent.");
+            javaMailSender.send(createExerciseMimeMessage(mail));
+            LOGGER.info("exercise Email has been sent.");
         } catch (MailException e) {
-            LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
+            LOGGER.error("Failed to process exercise email sending: ", e.getMessage(), e);
         }
     }
 

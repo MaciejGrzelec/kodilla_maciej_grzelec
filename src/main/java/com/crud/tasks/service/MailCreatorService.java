@@ -43,6 +43,7 @@ public class MailCreatorService {
 
 
     public String buildExerciseEmail(String message) {
+
         Context context = new Context();
         context.setVariable("message", message);
         context.setVariable("tasks_url", "http://localhost:8888/crud");

@@ -35,7 +35,7 @@ public class SimpleEmailService {
         LOGGER.info("Starting exercise email preparation...");
         try {
             javaMailSender.send(createExerciseMimeMessage(mail));
-            LOGGER.info("exercise Email has been sent.");
+            LOGGER.info("exercise Email has been sent");
         } catch (MailException e) {
             LOGGER.error("Failed to process exercise email sending: ", e.getMessage(), e);
         }

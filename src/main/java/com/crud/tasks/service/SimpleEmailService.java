@@ -24,7 +24,16 @@ public class SimpleEmailService {
     public void send(final Mail mail) {
         LOGGER.info("Starting email preparation...");
         try {
-            SimpleMailMessage mailMessage = createMailMessage(mail);
+            javaMailSender.send(createExerciseMimeMessage(mail));
+            LOGGER.info("Email has been sent.");
+        } catch (MailException e) {
+            LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
+        }
+    }
+
+    public void sendExerciseMail(final Mail mail) {
+        LOGGER.info("Starting email preparation...");
+        try {
             javaMailSender.send(createMimeMessage(mail));
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
@@ -32,6 +41,14 @@ public class SimpleEmailService {
         }
     }
 
+    private MimeMessagePreparator createExerciseMimeMessage(final Mail mail) {
+        return mimeMessage -> {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setTo(mail.getMailTo());
+            messageHelper.setSubject(mail.getSubject());
+            messageHelper.setText(mailCreatorService.buildExerciseEmail(mail.getMessage()), true);
+        };
+    }
     private MimeMessagePreparator createMimeMessage(final Mail mail) {
         return mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);

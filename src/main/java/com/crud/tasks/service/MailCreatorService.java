@@ -40,4 +40,19 @@ public class MailCreatorService {
         context.setVariable("application_functionality", funcionality);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
+
+    public String buildExerciseEmail(String message) {
+        Context context = new Context();
+        context.setVariable("message", message);
+        context.setVariable("tasks_url", "http://localhost:8888/crud");
+        context.setVariable("button","Visit website");
+        context.setVariable("admin_name", adminConfig.getAdminName());
+        context.setVariable("goodbye_message", "bye bye");
+        context.setVariable("preview", "preview");
+        context.setVariable("company", "Kodilla");
+        context.setVariable("show_button", false);
+        context.setVariable("is_friend", true);
+        context.setVariable("admin_config", adminConfig);
+        return templateEngine.process("mail/exercise-mail", context);
+    }
 }
